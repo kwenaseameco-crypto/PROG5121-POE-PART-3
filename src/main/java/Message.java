@@ -8,8 +8,6 @@ import java.util.regex.Pattern;
 
 /**
  * Stores and validates QuickChat messages.
- * Part 3 populates arrays for sent, disregarded and stored messages,
- * plus arrays of message hashes and IDs (no hard-coded test data).
  */
 public class Message {
     private String messageID;
@@ -86,7 +84,7 @@ public class Message {
     }
 
     /**
-     * A ten-digit ID is built with a counted for loop (LU4).
+     * A ten-digit ID is built with a counted for loop.
      */
     private String generateMessageID() {
         Random random = new Random();
@@ -112,8 +110,6 @@ public class Message {
     /**
      * Ensures that the recipient cell number starts with an international code
      * and that the number after the code is no more than ten characters.
-     * Regular expression adapted from ITU-T Recommendation E.164:
-     * https://www.itu.int/rec/T-REC-E.164
      */
     public String checkRecipientCell() {
         return checkRecipientCell(recipient);
@@ -170,7 +166,7 @@ public class Message {
     }
 
     /**
-     * Lets the user choose to send, store or disregard the message (LU3 switch).
+     * Lets the user choose to send, store or disregard the message.
      */
     public String SentMessage() {
         Scanner input = new Scanner(System.in);
@@ -185,7 +181,6 @@ public class Message {
 
     /**
      * Same send / store / disregard logic for unit tests.
-     * These flags populate the Part 3 arrays; test data is not hard-coded.
      */
     public String SentMessage(int choice) {
         if (choice == 1) {
@@ -235,8 +230,6 @@ public class Message {
 
     /**
      * Stores the message in a JSON file for sending later.
-     * JSON object format follows the common key/value structure described at:
-     * https://www.json.org/json-en.html
      */
     public String storeMessage() {
         writeStoredMessagesToJson();
@@ -245,7 +238,6 @@ public class Message {
 
     /**
      * Reads storedMessages.json back into the stored-messages array.
-     * JSON parsing approach based on https://www.json.org/json-en.html
      */
     public static void loadStoredMessagesFromJson() {
         File file = new File(STORE_FILE);
