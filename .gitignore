@@ -1,0 +1,12 @@
+target/
+*.class
+*.jar
+*.war
+*.iml
+.idea/
+nbproject/private/
+nbbuild/
+dist/
+build/
+storedMessages.json
+.DS_Store
